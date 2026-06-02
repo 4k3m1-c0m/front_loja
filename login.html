@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | B7Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+                    colors: { brand: '#1D4FFE' },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.4s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        input:focus { outline: none; }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#F9F9F9] font-poppins text-black">
+
+    <!-- HEADER WARNING -->
+    <section class="bg-black py-4 text-center text-white">
+        <div class="md:hidden"><span class="font-bold">FRETE GRÁTIS</span> para todo o Nordeste!</div>
+        <div class="hidden md:block"><span class="font-bold">FRETE GRÁTIS</span> para todo o Nordeste nas compras acima de R$ 199,00. <span class="font-bold">APROVEITA!</span></div>
+    </section>
+
+    <!-- HEADER PRINCIPAL -->
+    <header class="bg-white sticky top-0 z-50 shadow-sm">
+        <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+            <div class="flex items-center">
+                <a class="mr-10" href="index.html">
+                    <div class="text-2xl font-black tracking-tighter bg-black text-white px-4 py-2 rounded-lg">
+                        B7<span class="text-brand">STORE</span>
+                    </div>
+                </a>
+                <ul class="hidden items-center gap-8 lg:flex">
+                    <li><a class="text-[#7F7F7F] hover:text-black font-medium" href="produtos.html">Camisetas</a></li>
+                    <li><a class="text-[#7F7F7F] hover:text-black font-medium" href="produtos.html">Kits B7Web</a></li>
+                    <li><a class="text-[#7F7F7F] hover:text-black font-medium" href="produtos.html">Acessórios</a></li>
+                    <li><a class="text-[#7F7F7F] hover:text-black font-medium" href="produtos.html">Eletrônicos</a></li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-4">
+                <input class="hidden h-12 w-48 rounded-full border border-[#D9D9D9] bg-white px-5 text-sm outline-none focus:border-brand lg:block" type="text" placeholder="O que você procura?" />
+                <a href="login.html" class="flex h-12 w-12 items-center justify-center rounded-full border border-[#D9D9D9] hover:border-brand hover:bg-brand/5">
+                    <svg class="h-5 w-5 text-[#7F7F7F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                </a>
+                <a href="checkout.html" class="flex h-12 w-12 items-center justify-center rounded-full border border-[#D9D9D9] hover:border-brand hover:bg-brand/5 relative">
+                    <svg class="h-5 w-5 text-[#7F7F7F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    <span class="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand text-[10px] font-bold text-white">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN COM LOGIN -->
+    <main class="relative flex min-h-[calc(100vh-200px)] items-center justify-center overflow-hidden px-6 py-16">
+        <div class="absolute -left-32 top-20 h-96 w-96 rounded-full bg-brand/10 blur-3xl"></div>
+        <div class="absolute -bottom-40 right-20 h-80 w-80 rounded-full bg-black/5 blur-3xl"></div>
+
+        <div class="relative w-full max-w-6xl overflow-hidden rounded-3xl bg-white shadow-2xl animate-fade-in">
+            <div class="grid lg:grid-cols-2">
+                <!-- Lado esquerdo -->
+                <div class="relative hidden bg-gradient-to-br from-brand via-[#0f2ba0] to-black p-10 text-white lg:flex lg:flex-col lg:justify-between">
+                    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 1px); background-size: 24px 24px;"></div>
+                    <div class="relative z-10">
+                        <a href="index.html" class="inline-flex w-fit items-center gap-2 rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-3">
+                            <div class="text-xl font-black">B7<span class="text-brand">STORE</span></div>
+                        </a>
+                    </div>
+                    <div class="relative z-10 my-16">
+                        <div class="mb-6 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur-sm">
+                            🚚 Frete grátis para todo o Nordeste
+                        </div>
+                        <h1 class="text-5xl font-bold leading-tight">Bem-vindo de volta!</h1>
+                        <p class="mt-6 text-lg text-white/80">Acesse sua conta para ver seus pedidos e ofertas exclusivas.</p>
+                        <div class="mt-10 flex gap-3">
+                            <div class="h-1 w-12 rounded-full bg-white/30"></div>
+                            <div class="h-1 w-8 rounded-full bg-brand"></div>
+                            <div class="h-1 w-8 rounded-full bg-white/30"></div>
+                        </div>
+                    </div>
+                    <div class="relative z-10 grid grid-cols-3 gap-4 text-center">
+                        <div class="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
+                            <div class="text-2xl font-bold">30d</div>
+                            <div class="mt-1 text-xs">troca fácil</div>
+                        </div>
+                        <div class="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
+                            <div class="text-2xl font-bold">PIX</div>
+                            <div class="mt-1 text-xs">pagamento</div>
+                        </div>
+                        <div class="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
+                            <div class="text-2xl font-bold">24h</div>
+                            <div class="mt-1 text-xs">ofertas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lado direito - Formulários -->
+                <div class="px-8 py-10 sm:px-12 lg:px-14 lg:py-14">
+                    <div class="mb-8 flex items-center justify-between lg:hidden">
+                        <div class="text-xl font-black bg-black text-white px-3 py-1.5 rounded-lg">B7<span class="text-brand">STORE</span></div>
+                        <a href="index.html" class="text-sm font-medium text-[#7F7F7F] hover:text-black">Voltar à loja →</a>
+                    </div>
+
+                    <div id="login-title-area">
+                        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-brand">Bem-vindo</p>
+                        <h2 class="text-3xl font-bold sm:text-4xl">Acesse sua conta</h2>
+                        <p class="mt-3 text-[#7F7F7F]">Use seu e-mail e senha para entrar.</p>
+                    </div>
+
+                    <div id="register-title-area" class="hidden">
+                        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-brand">Novo por aqui?</p>
+                        <h2 class="text-3xl font-bold sm:text-4xl">Crie sua conta</h2>
+                        <p class="mt-3 text-[#7F7F7F]">Cadastre-se gratuitamente e aproveite as ofertas.</p>
+                    </div>
+
+                    <div id="message-area" class="mt-4 hidden rounded-2xl border px-4 py-3 text-sm"></div>
+
+                    <!-- FORMULÁRIO DE LOGIN -->
+                    <div id="login-form-container" class="mt-8">
+                        <form id="login-form" class="space-y-5">
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700">E-mail</label>
+                                <div class="flex items-center rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 transition-all focus-within:border-brand focus-within:bg-white">
+                                    <svg class="mr-3 h-5 w-5 text-[#7F7F7F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                    <input id="login-email" type="email" placeholder="seu@email.com" class="h-14 w-full bg-transparent text-sm outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700">Senha</label>
+                                <div class="flex items-center rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 transition-all focus-within:border-brand focus-within:bg-white">
+                                    <svg class="mr-3 h-5 w-5 text-[#7F7F7F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                    <input id="login-password" type="password" placeholder="Digite sua senha" class="h-14 w-full bg-transparent text-sm outline-none">
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <label class="flex cursor-pointer items-center gap-2 text-[#7F7F7F]">
+                                    <input type="checkbox" id="remember-me" class="h-4 w-4 rounded border-[#D9D9D9] text-brand focus:ring-brand">
+                                    <span>Lembrar de mim</span>
+                                </label>
+                                <a href="#" class="font-medium text-brand hover:text-black">Esqueci a senha</a>
+                            </div>
+                            <button type="submit" id="login-submit-btn" class="w-full rounded-2xl bg-brand px-6 py-4 text-base font-semibold text-white shadow-lg shadow-brand/25 transition-all hover:scale-[1.02] hover:bg-[#173fd0]">
+                                Entrar na B7Store
+                            </button>
+                        </form>
+                        <div class="relative my-6">
+                            <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-[#D9D9D9]"></div></div>
+                            <div class="relative flex justify-center text-sm"><span class="bg-white px-4 text-[#7F7F7F]">ou</span></div>
+                        </div>
+                        <button id="show-register-btn" class="w-full rounded-2xl border border-[#D9D9D9] bg-white px-6 py-4 text-base font-semibold text-black transition-all hover:border-black hover:shadow-lg">
+                            Criar nova conta
+                        </button>
+                    </div>
+
+                    <!-- FORMULÁRIO DE REGISTRO -->
+                    <div id="register-form-container" class="hidden mt-8">
+                        <form id="register-form" class="space-y-4">
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700">Nome completo</label>
+                                <div class="flex items-center rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 transition-all focus-within:border-brand focus-within:bg-white">
+                                    <svg class="mr-3 h-5 w-5 text-[#7F7F7F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <input id="register-name" type="text" placeholder="Seu nome completo" class="h-14 w-full bg-transparent text-sm outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700">E-mail</label>
+                                <div class="flex items-center rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 transition-all focus-within:border-brand focus-within:bg-white">
+                                    <svg class="mr-3 h-5 w-5 text-[#7F7F7F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                    <input id="register-email" type="email" placeholder="seu@email.com" class="h-14 w-full bg-transparent text-sm outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700">Senha</label>
+                                <div class="flex items-center rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 transition-all focus-within:border-brand focus-within:bg-white">
+                                    <svg class="mr-3 h-5 w-5 text-[#7F7F7F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                    <input id="register-password" type="password" placeholder="Mínimo 6 caracteres" class="h-14 w-full bg-transparent text-sm outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700">Confirmar senha</label>
+                                <div class="flex items-center rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 transition-all focus-within:border-brand focus-within:bg-white">
+                                    <svg class="mr-3 h-5 w-5 text-[#7F7F7F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <input id="register-password-confirm" type="password" placeholder="Digite novamente" class="h-14 w-full bg-transparent text-sm outline-none">
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full rounded-2xl bg-brand px-6 py-4 text-base font-semibold text-white shadow-lg shadow-brand/25 transition-all hover:scale-[1.02] hover:bg-[#173fd0]">
+                                Cadastrar gratuitamente
+                            </button>
+                        </form>
+                        <div class="relative my-6">
+                            <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-[#D9D9D9]"></div></div>
+                            <div class="relative flex justify-center text-sm"><span class="bg-white px-4 text-[#7F7F7F]">já tem conta?</span></div>
+                        </div>
+                        <button id="show-login-btn" class="w-full rounded-2xl border border-[#D9D9D9] bg-white px-6 py-4 text-base font-semibold text-black transition-all hover:border-black hover:shadow-lg">
+                            ← Voltar para o login
+                        </button>
+                    </div>
+
+                    <div class="mt-10 rounded-2xl bg-gradient-to-r from-brand/5 to-black/5 p-5 text-sm text-[#7F7F7F]">
+                        <span class="font-semibold text-black">✨ Dica:</span> após o login, você será redirecionado para a página inicial da B7Store.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white mt-auto">
+        <div class="mx-auto flex max-w-5xl flex-col px-6 pb-12 pt-16 text-center lg:flex-row lg:items-center lg:justify-between lg:pt-12">
+            <a href="index.html">
+                <div class="text-2xl font-black bg-white text-black px-4 py-2 rounded-lg inline-block">B7<span class="text-brand">STORE</span></div>
+            </a>
+            <ul class="mt-10 flex flex-col gap-8 lg:mt-0 lg:flex-row">
+                <li><a class="text-white/80 hover:text-white" href="produtos.html">Camisetas</a></li>
+                <li><a class="text-white/80 hover:text-white" href="produtos.html">Kits B7Web</a></li>
+                <li><a class="text-white/80 hover:text-white" href="produtos.html">Acessórios</a></li>
+                <li><a class="text-white/80 hover:text-white" href="produtos.html">Eletrônicos</a></li>
+            </ul>
+        </div>
+        <div class="mx-auto flex max-w-5xl flex-col border-y border-white/25 px-6 py-10 text-center text-sm text-white/60">
+            <p>Se você leu isso aqui, saiba que está no caminho certo!</p>
+            <p class="mt-2">Continue estudando e você chegará lá...</p>
+        </div>
+    </footer>
+
+    <script>
+        // Configuração Supabase
+        const SUPABASE_URL = 'https://xiaukzzqjixkycuepqzm.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_ANUwxvL9ux63ATKGyX1leA_MIhWIUOg';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Elementos DOM
+        const loginContainer = document.getElementById('login-form-container');
+        const registerContainer = document.getElementById('register-form-container');
+        const loginTitleArea = document.getElementById('login-title-area');
+        const registerTitleArea = document.getElementById('register-title-area');
+        const showRegisterBtn = document.getElementById('show-register-btn');
+        const showLoginBtn = document.getElementById('show-login-btn');
+        const messageArea = document.getElementById('message-area');
+
+        function showMessage(msg, isError = true) {
+            messageArea.classList.remove('hidden');
+            messageArea.textContent = msg;
+            if (isError) {
+                messageArea.className = 'mt-4 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700';
+            } else {
+                messageArea.className = 'mt-4 rounded-2xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700';
+            }
+            messageArea.classList.remove('hidden');
+            setTimeout(() => {
+                messageArea.classList.add('hidden');
+            }, 5000);
+        }
+
+        function getAuthMessage(error) {
+            if (!error) return '';
+            const messages = {
+                'Invalid login credentials': '❌ E-mail ou senha inválidos.',
+                'User already registered': '📧 Este e-mail já está cadastrado.',
+                'Password should be at least 6 characters.': '🔒 A senha precisa ter pelo menos 6 caracteres.',
+                'Signup requires a valid password': '🔒 Digite uma senha válida.',
+                'Unable to validate email address: invalid format': '📧 Digite um e-mail válido.',
+                'Email rate limit exceeded': '⏰ Muitas tentativas. Aguarde alguns minutos.'
+            };
+            return messages[error.message] || error.message || 'Erro desconhecido. Tente novamente.';
+        }
+
+        function showLoginForm() {
+            loginContainer.classList.remove('hidden');
+            registerContainer.classList.add('hidden');
+            loginTitleArea.classList.remove('hidden');
+            registerTitleArea.classList.add('hidden');
+            messageArea.classList.add('hidden');
+        }
+
+        function showRegisterForm() {
+            loginContainer.classList.add('hidden');
+            registerContainer.classList.remove('hidden');
+            loginTitleArea.classList.add('hidden');
+            registerTitleArea.classList.remove('hidden');
+            messageArea.classList.add('hidden');
+        }
+
+        showRegisterBtn.addEventListener('click', showRegisterForm);
+        showLoginBtn.addEventListener('click', showLoginForm);
+
+        // ========== LOGIN ==========
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+            const rememberCheck = document.getElementById('remember-me');
+            const submitBtn = document.getElementById('login-submit-btn');
+            
+            if (!email || !password) {
+                showMessage('Preencha e-mail e senha.', true);
+                return;
+            }
+
+            // Desabilitar botão durante o login
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 mx-auto" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+            
+            try {
+                console.log('Tentando login com:', email);
+                const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+                
+                if (error) {
+                    console.error('Erro no login:', error);
+                    showMessage(getAuthMessage(error), true);
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Entrar na B7Store';
+                    return;
+                }
+                
+                console.log('Login成功:', data);
+                
+                // Salvar dados
+                localStorage.setItem('token', data.session.access_token);
+                localStorage.setItem('userEmail', data.user.email);
+                
+                if (rememberCheck.checked) {
+                    localStorage.setItem('rememberedEmail', email);
+                } else {
+                    localStorage.removeItem('rememberedEmail');
+                }
+                
+                showMessage('✅ Login realizado com sucesso! Redirecionando...', false);
+                
+                // Redirecionar após 1 segundo
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+                
+            } catch (err) {
+                console.error('Erro inesperado:', err);
+                showMessage('Erro de conexão. Tente novamente.', true);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Entrar na B7Store';
+            }
+        });
+
+        // ========== REGISTRO ==========
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('register-name').value.trim();
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-password-confirm').value;
+            
+            if (!name || !email || !password || !confirmPassword) {
+                showMessage('Preencha todos os campos.', true);
+                return;
+            }
+            
+            if (password.length < 6) {
+                showMessage('A senha precisa ter pelo menos 6 caracteres.', true);
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showMessage('As senhas não coincidem.', true);
+                return;
+            }
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 mx-auto" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+            
+            const { data, error } = await supabaseClient.auth.signUp({
+                email,
+                password,
+                options: { data: { full_name: name } }
+            });
+            
+            if (error) {
+                showMessage(getAuthMessage(error), true);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Cadastrar gratuitamente';
+                return;
+            }
+            
+            showMessage('✅ Conta criada com sucesso! Faça login.', false);
+            setTimeout(() => {
+                showLoginForm();
+                document.getElementById('login-email').value = email;
+                document.getElementById('login-password').value = '';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Cadastrar gratuitamente';
+            }, 2000);
+        });
+
+        // Carregar email salvo
+        const rememberedEmail = localStorage.getItem('rememberedEmail');
+        if (rememberedEmail) {
+            document.getElementById('login-email').value = rememberedEmail;
+            document.getElementById('remember-me').checked = true;
+        }
+        
+        // Verificar se já está logado e redirecionar
+        async function checkAlreadyLogged() {
+            const { data } = await supabaseClient.auth.getSession();
+            if (data.session) {
+                console.log('Usuário já logado, redirecionando...');
+                window.location.href = 'index.html';
+            }
+        }
+        checkAlreadyLogged();
+    </script>
+</body>
+
+</html>
