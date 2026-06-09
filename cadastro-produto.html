@@ -38,7 +38,7 @@
       <div class="flex items-center">
         <a class="mr-10" href="index.html"><img src="assets/images/ui/logo-black.png" alt="B7Store"></a>
         <ul class="hidden items-center gap-10 lg:flex">
-          <li><a class="text-[#7F7F7F] hover:text-black" href="produtos.html">Produtos</a></li>
+          <li><a class="text-white hover:text-black" href="produtos.html">Produtos</a></li>
           <li><a class="font-semibold text-brand" href="cadastro-produto.html">Cadastrar produto</a></li>
         </ul>
       </div>
@@ -58,14 +58,14 @@
       </div>
     </div>
     <nav data-role="header-menu" class="hidden pb-8 lg:hidden">
-      <a class="block border-b border-[#D9D9D9] px-8 py-6 text-lg text-[#7F7F7F]" href="produtos.html">Produtos</a>
+      <a class="block border-b border-[#D9D9D9] px-8 py-6 text-lg text-white" href="produtos.html">Produtos</a>
       <a class="block border-b border-[#D9D9D9] px-8 py-6 text-lg text-brand" href="cadastro-produto.html">Cadastrar
         produto</a>
     </nav>
   </header>
 
   <main class="mx-auto max-w-5xl px-6 py-10">
-    <section class="mb-8 text-[#7F7F7F]">Home &gt; Cadastro de Produtos</section>
+    <section class="mb-8 text-white">Home &gt; Cadastro de Produtos</section>
 
     <section class="grid gap-8 lg:grid-cols-[1fr_340px]">
       <form id="product-form"
@@ -73,59 +73,59 @@
         <div class="mb-8">
           <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-brand">Novo produto</p>
           <h1 class="text-3xl font-bold">Cadastro de produtos</h1>
-          <p class="mt-3 text-[#7F7F7F]">Preencha os dados abaixo para salvar e visualizar o produto cadastrado.</p>
+          <p class="mt-3 text-white">Preencha os dados abaixo para salvar e visualizar o produto cadastrado.</p>
         </div>
 
         <div class="grid gap-5 md:grid-cols-2">
           <label class="block md:col-span-2">
-            <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Nome do produto</span>
+            <span class="mb-2 block text-sm font-medium text-white">Nome do produto</span>
             <input id="name"
               class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
               type="text" placeholder="Ex: Camiseta React Azul" required>
           </label>
 
           <label class="block">
-            <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Categoria</span>
+            <span class="mb-2 block text-sm font-medium text-white">Categoria</span>
             <select id="category"
-              class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
-              required>
-              <option value="">Selecione</option>
-              <option>Camisetas</option>
-              <option>Kits B7Web</option>
-              <option>Acessórios</option>
-              <option>Eletrônicos</option>
-            </select>
+  class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 text-slate-900 outline-none transition-all focus:border-brand focus:bg-white"
+  required>
+  <option value="">Selecione</option>
+  <option>Camisetas</option>
+  <option>Kits B7Web</option>
+  <option>Acessórios</option>
+  <option>Eletrônicos</option>
+</select>
           </label>
 
           <label class="block">
-            <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Preço</span>
+            <span class="mb-2 block text-sm font-medium text-white">Preço</span>
             <input id="price"
               class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
               type="number" min="0" step="0.01" placeholder="59.90" required>
           </label>
 
           <label class="block">
-            <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Estoque</span>
+            <span class="mb-2 block text-sm font-medium text-white">Estoque</span>
             <input id="stock"
               class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
               type="number" min="0" step="1" placeholder="20" required>
           </label>
 
           <label class="block">
-            <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Imagem</span>
+            <span class="mb-2 block text-sm font-medium text-white">Imagem</span>
             <select id="image"
-              class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
-              required>
-              <option value="assets/images/products/camiseta-css.png">Camiseta CSS</option>
-              <option value="assets/images/products/camiseta-html.png">Camiseta HTML</option>
-              <option value="assets/images/products/camiseta-node.png">Camiseta Node</option>
-              <option value="assets/images/products/camiseta-react-azul.png">Camiseta React</option>
-              <option value="assets/images/products/bone-b7-preto.png">Boné B7</option>
-            </select>
+  class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 text-slate-900 outline-none transition-all focus:border-brand focus:bg-white"
+  required>
+  <option value="assets/images/products/camiseta-css.png">Camiseta CSS</option>
+  <option value="assets/images/products/camiseta-html.png">Camiseta HTML</option>
+  <option value="assets/images/products/camiseta-node.png">Camiseta Node</option>
+  <option value="assets/images/products/camiseta-react-azul.png">Camiseta React</option>
+  <option value="assets/images/products/bone-b7-preto.png">Boné B7</option>
+</select>
           </label>
 
           <label class="block md:col-span-2">
-            <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Descrição</span>
+            <span class="mb-2 block text-sm font-medium text-white">Descrição</span>
             <textarea id="description"
               class="min-h-32 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 py-4 outline-none transition-all focus:border-brand focus:bg-white"
               placeholder="Descreva o produto" required></textarea>
@@ -139,8 +139,8 @@
             class="rounded-2xl bg-brand px-8 py-4 font-semibold text-white shadow-lg shadow-brand/25 transition-all hover:scale-[1.02] hover:bg-[#173fd0]"
             type="submit">Cadastrar produto</button>
           <button id="clear-products"
-            class="rounded-2xl border border-[#D9D9D9] bg-white px-8 py-4 font-semibold transition-all hover:border-black hover:shadow-lg"
-            type="button">Limpar lista</button>
+  class="rounded-2xl border border-[#D9D9D9] bg-white px-8 py-4 font-semibold text-slate-900 transition-all hover:border-black hover:shadow-lg"
+  type="button">Limpar lista</button>
         </div>
       </form>
 
@@ -170,11 +170,11 @@
       </aside>
     </section>
 
-    <section class="mt-10 rounded-3xl border border-[#D9D9D9] bg-white p-6 shadow-sm lg:p-10">
+    <section class="mt-10 rounded-3xl border border-[#D9D9D9] bg-white p-6 shadow-sm lg:p-10 text-slate-900">
       <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 class="text-2xl font-bold">Produtos cadastrados</h2>
-          <p class="mt-1 text-[#7F7F7F]">Os produtos são carregados da API da Vercel.</p>
+          <p class="mt-1 text-slate-300">Os produtos são carregados da API da Vercel.</p>
         </div>
         <span id="counter" class="rounded-full bg-brand/10 px-4 py-2 text-sm font-semibold text-brand">0 produtos</span>
       </div>
@@ -255,14 +255,14 @@
     }
 
     async function renderProducts() {
-      productList.innerHTML = '<div class="rounded-2xl border border-dashed border-[#D9D9D9] p-8 text-center text-[#7F7F7F] md:col-span-2 lg:col-span-3">Carregando produtos...</div>';
+      productList.innerHTML = '<div class="rounded-2xl border border-dashed border-[#D9D9D9] p-8 text-center text-white md:col-span-2 lg:col-span-3">Carregando produtos...</div>';
 
       try {
         const products = getProductList(await apiRequest('/products'));
         counter.textContent = `${products.length} ${products.length === 1 ? 'produto' : 'produtos'}`;
 
         if (products.length === 0) {
-          productList.innerHTML = '<div class="rounded-2xl border border-dashed border-[#D9D9D9] p-8 text-center text-[#7F7F7F] md:col-span-2 lg:col-span-3">Nenhum produto cadastrado ainda.</div>';
+          productList.innerHTML = '<div class="rounded-2xl border border-dashed border-[#D9D9D9] p-8 text-center text-white md:col-span-2 lg:col-span-3">Nenhum produto cadastrado ainda.</div>';
           return;
         }
 
@@ -271,8 +271,8 @@
             <img class="mx-auto h-44 object-contain" src="${escapeHtml(product.image || product.image_url || '')}" alt="${escapeHtml(product.name || '')}">
             <div class="pt-5 text-lg font-bold">${escapeHtml(product.name || '')}</div>
             <div class="my-2 text-2xl font-bold text-brand">${formatPrice(product.price)}</div>
-            <div class="text-sm text-[#7F7F7F]">${escapeHtml(product.category || 'Sem categoria')} • Estoque: ${escapeHtml(product.stock ?? 0)}</div>
-            <p class="mt-4 line-clamp-3 text-sm text-[#7F7F7F]">${escapeHtml(product.description || '')}</p>
+            <div class="text-sm text-white">${escapeHtml(product.category || 'Sem categoria')} • Estoque: ${escapeHtml(product.stock ?? 0)}</div>
+            <p class="mt-4 line-clamp-3 text-sm text-white">${escapeHtml(product.description || '')}</p>
           </article>
         `).join('');
       } catch (error) {
