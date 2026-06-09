@@ -7,7 +7,8 @@
   <title>Cadastro de Produtos | B7Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,13 +26,14 @@
   </script>
 </head>
 
-<body class="bg-[#F9F9F9] font-poppins text-base text-black">
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 font-poppins text-white min-h-screen">
   <section class="bg-black py-4 text-center text-white">
     <div class="md:hidden"><span class="font-bold">FRETE GRÁTIS</span> para todo o Nordeste!</div>
-    <div class="hidden md:block"><span class="font-bold">FRETE GRÁTIS</span> para todo o Nordeste nas compras acima de R$ 199,00. <span class="font-bold">APROVEITA!</span></div>
+    <div class="hidden md:block"><span class="font-bold">FRETE GRÁTIS</span> para todo o Nordeste nas compras acima de
+      R$ 199,00. <span class="font-bold">APROVEITA!</span></div>
   </section>
 
-  <header class="bg-white">
+  <header class="bg-[#dfe7f1] border-b border-[#c7d2de] shadow-md">
     <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-8">
       <div class="flex items-center">
         <a class="mr-10" href="index.html"><img src="assets/images/ui/logo-black.png" alt="B7Store"></a>
@@ -41,9 +43,15 @@
         </ul>
       </div>
       <div class="flex items-center gap-4">
-        <a href="login.html" class="flex h-12 w-12 items-center justify-center rounded border border-[#D9D9D9] hover:bg-black/5"><img class="h-6 w-6" src="assets/images/ui/user-line.png" alt=""></a>
-        <a href="checkout.html" class="flex h-12 w-12 items-center justify-center rounded border border-[#D9D9D9] hover:bg-black/5"><img class="h-6 w-6" src="assets/images/ui/shopping-bag-4-line.png" alt=""></a>
-        <button data-role="menu-burger" class="flex h-12 w-12 items-center justify-center rounded border border-[#D9D9D9] hover:bg-black/5 lg:hidden" type="button">
+        <a href="login.html"
+          class="flex h-12 w-12 items-center justify-center rounded border border-[#D9D9D9] hover:bg-black/5"><img
+            class="h-6 w-6" src="assets/images/ui/user-line.png" alt=""></a>
+        <a href="checkout.html"
+          class="flex h-12 w-12 items-center justify-center rounded border border-[#D9D9D9] hover:bg-black/5"><img
+            class="h-6 w-6" src="assets/images/ui/shopping-bag-4-line.png" alt=""></a>
+        <button data-role="menu-burger"
+          class="flex h-12 w-12 items-center justify-center rounded border border-[#D9D9D9] hover:bg-black/5 lg:hidden"
+          type="button">
           <img data-role="icon-off" class="h-6 w-6" src="assets/images/ui/menu-line.png" alt="">
           <img data-role="icon-on" class="hidden h-6 w-6" src="assets/images/ui/menu-line-white.png" alt="">
         </button>
@@ -51,7 +59,8 @@
     </div>
     <nav data-role="header-menu" class="hidden pb-8 lg:hidden">
       <a class="block border-b border-[#D9D9D9] px-8 py-6 text-lg text-[#7F7F7F]" href="produtos.html">Produtos</a>
-      <a class="block border-b border-[#D9D9D9] px-8 py-6 text-lg text-brand" href="cadastro-produto.html">Cadastrar produto</a>
+      <a class="block border-b border-[#D9D9D9] px-8 py-6 text-lg text-brand" href="cadastro-produto.html">Cadastrar
+        produto</a>
     </nav>
   </header>
 
@@ -59,7 +68,8 @@
     <section class="mb-8 text-[#7F7F7F]">Home &gt; Cadastro de Produtos</section>
 
     <section class="grid gap-8 lg:grid-cols-[1fr_340px]">
-      <form id="product-form" class="rounded-3xl border border-[#D9D9D9] bg-white p-6 shadow-sm lg:p-10">
+      <form id="product-form"
+        class="rounded-3xl border border-white/10 bg-white/10 backdrop-blur-lg p-6 shadow-2xl lg:p-10">
         <div class="mb-8">
           <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-brand">Novo produto</p>
           <h1 class="text-3xl font-bold">Cadastro de produtos</h1>
@@ -69,12 +79,16 @@
         <div class="grid gap-5 md:grid-cols-2">
           <label class="block md:col-span-2">
             <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Nome do produto</span>
-            <input id="name" class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white" type="text" placeholder="Ex: Camiseta React Azul" required>
+            <input id="name"
+              class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
+              type="text" placeholder="Ex: Camiseta React Azul" required>
           </label>
 
           <label class="block">
             <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Categoria</span>
-            <select id="category" class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white" required>
+            <select id="category"
+              class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
+              required>
               <option value="">Selecione</option>
               <option>Camisetas</option>
               <option>Kits B7Web</option>
@@ -85,17 +99,23 @@
 
           <label class="block">
             <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Preço</span>
-            <input id="price" class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white" type="number" min="0" step="0.01" placeholder="59.90" required>
+            <input id="price"
+              class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
+              type="number" min="0" step="0.01" placeholder="59.90" required>
           </label>
 
           <label class="block">
             <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Estoque</span>
-            <input id="stock" class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white" type="number" min="0" step="1" placeholder="20" required>
+            <input id="stock"
+              class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
+              type="number" min="0" step="1" placeholder="20" required>
           </label>
 
           <label class="block">
             <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Imagem</span>
-            <select id="image" class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white" required>
+            <select id="image"
+              class="h-14 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 outline-none transition-all focus:border-brand focus:bg-white"
+              required>
               <option value="assets/images/products/camiseta-css.png">Camiseta CSS</option>
               <option value="assets/images/products/camiseta-html.png">Camiseta HTML</option>
               <option value="assets/images/products/camiseta-node.png">Camiseta Node</option>
@@ -106,26 +126,46 @@
 
           <label class="block md:col-span-2">
             <span class="mb-2 block text-sm font-medium text-[#7F7F7F]">Descrição</span>
-            <textarea id="description" class="min-h-32 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 py-4 outline-none transition-all focus:border-brand focus:bg-white" placeholder="Descreva o produto" required></textarea>
+            <textarea id="description"
+              class="min-h-32 w-full rounded-2xl border border-[#D9D9D9] bg-[#F9F9F9] px-4 py-4 outline-none transition-all focus:border-brand focus:bg-white"
+              placeholder="Descreva o produto" required></textarea>
           </label>
         </div>
 
         <div id="message" class="mt-6 hidden rounded-2xl border px-5 py-4 text-sm font-medium"></div>
 
         <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-          <button class="rounded-2xl bg-brand px-8 py-4 font-semibold text-white shadow-lg shadow-brand/25 transition-all hover:scale-[1.02] hover:bg-[#173fd0]" type="submit">Cadastrar produto</button>
-          <button id="clear-products" class="rounded-2xl border border-[#D9D9D9] bg-white px-8 py-4 font-semibold transition-all hover:border-black hover:shadow-lg" type="button">Limpar lista</button>
+          <button
+            class="rounded-2xl bg-brand px-8 py-4 font-semibold text-white shadow-lg shadow-brand/25 transition-all hover:scale-[1.02] hover:bg-[#173fd0]"
+            type="submit">Cadastrar produto</button>
+          <button id="clear-products"
+            class="rounded-2xl border border-[#D9D9D9] bg-white px-8 py-4 font-semibold transition-all hover:border-black hover:shadow-lg"
+            type="button">Limpar lista</button>
         </div>
       </form>
 
-      <aside class="rounded-3xl border border-[#D9D9D9] bg-white p-6 shadow-sm">
-        <h2 class="text-xl font-bold">Prévia</h2>
-        <p class="mt-2 text-sm text-[#7F7F7F]">Veja como o produto ficará na loja.</p>
-        <div class="mt-6 rounded-2xl border border-[#D9D9D9] p-5">
-          <img id="preview-image" class="mx-auto h-52 object-contain" src="assets/images/products/camiseta-css.png" alt="Prévia do produto">
-          <div id="preview-name" class="pt-6 text-lg font-bold">Nome do produto</div>
-          <div id="preview-price" class="my-2 text-2xl font-bold text-brand">R$ 0,00</div>
-          <div id="preview-category" class="text-[#7F7F7F]">Categoria</div>
+      <aside class="rounded-3xl border border-[#a7b7cc] bg-[#bcc9db] p-6 shadow-md">
+        <h2 class="text-xl font-bold text-slate-900">Prévia</h2>
+
+        <p class="mt-2 text-sm text-slate-700">
+          Veja como o produto ficará na loja.
+        </p>
+
+        <div class="mt-6 rounded-2xl border border-[#a7b7cc] bg-white/80 p-5 shadow-sm">
+          <img id="preview-image" class="mx-auto h-52 object-contain" src="assets/images/products/camiseta-css.png"
+            alt="Prévia do produto">
+
+          <div id="preview-name" class="pt-6 text-lg font-bold text-slate-900">
+            Nome do produto
+          </div>
+
+          <div id="preview-price" class="my-2 text-2xl font-bold text-[#3563c9]">
+            R$ 0,00
+          </div>
+
+          <div id="preview-category" class="text-slate-600">
+            Categoria
+          </div>
         </div>
       </aside>
     </section>
